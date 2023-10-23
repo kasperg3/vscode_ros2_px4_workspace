@@ -39,3 +39,9 @@ RUN cd /home/ros/ws_sensor_combined && \
 ARG WORKSPACE
 RUN echo "if [ -f ${WORKSPACE}/install/setup.bash ]; then source ${WORKSPACE}/install/setup.bash; fi" >> /home/ros/.bashrc
 RUN echo "source /home/ros/ws_sensor_combined/install/setup.bash" >> /home/ros/.bashrc
+
+# PX4 / mavlink ports https://docs.px4.io/main/en/simulation/
+EXPOSE 14550
+EXPOSE 14540-14549
+# TCP
+EXPOSE 4560

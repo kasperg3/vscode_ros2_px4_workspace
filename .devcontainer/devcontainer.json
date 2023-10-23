@@ -15,9 +15,16 @@
 		"--volume=/tmp/.X11-unix:/tmp/.X11-unix",
 		"--volume=/mnt/wslg:/mnt/wslg",
 		"--ipc=host"
+                // "-port 14550:14556/udp -port 14540:14557/udp -port 14560:14560/udp"
 		// uncomment to use intel iGPU
 		// "--device=/dev/dri"
 	],
+        "appPort": [
+                // Publish all exposed ports
+                "127.0.0.1:14550:14550/udp",
+                "127.0.0.1:14540-14549:14540-14549/udp",
+                "127.0.0.1:4560:4560/udp"
+        ],
 	"containerEnv": {
 		"DISPLAY": "${localEnv:DISPLAY}", // Needed for GUI try ":0" for windows
 		"WAYLAND_DISPLAY": "${localEnv:WAYLAND_DISPLAY}",
